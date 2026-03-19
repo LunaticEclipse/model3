@@ -1,5 +1,9 @@
 # KCDE quantitative option pricing model
-This model aims to find the **true probability density** of price movement in the next trading day. Market randomness is neither time-independent nor follows normal distribution perfectly. This model exploits the shape differences between the true density and the normal distribution, performing statistical arbitrage on options for profit.
+Market randomness is neither time-independent nor follows normal distribution perfectly. In particular, the extended hour market often hints at the price movement the following day. A big sell-off pre-market could signal risk aversion in the following trading day, and a big rise in the pre-market could point to a correction when market opens. 
+
+Using Kernel Conditional Density Estimation, this model aims to find a better estimate of the **true probability density** of price movement in the next trading day given information from the previous extended hour.
+
+This model quantifies this by modelling the distribution \[intraday move | extended-hour move\], and exploits the shape differences between the true density, the normal distribution, and the option-price-implied distribution, performing statistical arbitrage for profit if possible.
 
 ## Usage
 This model is best used at market open for forecasting the closing price of NVDA on the same day. 
@@ -9,9 +13,6 @@ Scroll until you find the #CONTROL# section. Set the 'atm' and 'initial_x' to be
 Firstly, the code will output the conditional density of the overall percentage intraday price movement in the upcoming trading hours, compared to the normal distribution fitted to the same data. The slider allows for adjusting the value of initial_x to observe how the conditional density evolves across different inputs. 
 
 Secondly, the code will print its estimated prices of the truncated option chain using the estimated density. Compare it with their real market prices to look for arbitrage opportunities (if you harbour sufficient trust in the model of an undergraduate student, that is).
-
-## Conditioning on extended-hour move
-The extended hour market often hints at the price movement the following day. A big sell-off pre-market could signal risk aversion in the following trading day, and a big rise in the pre-market could point to a correction when market opens. This model quantifies this by modelling the distribution \[intraday move | extended-hour move\]
 
 ## Choice of stock
 NVDA daily prices from 2025-08 to 2026-03 are used to fit the models in the example. It is observed that NVDA is in a distinct regime of stably drifting between 170 and 200 throughout the used day range, while being a highly traded stock nonetheless. This serves as a prime testing ground for my model.
