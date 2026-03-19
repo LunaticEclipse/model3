@@ -20,12 +20,15 @@ While the data pool may seem small, using a wider date range (e.g. from 2019 to 
 
 ## Examples of deviates from the normal distribution model
 <img width="796" height="400" alt="image" src="https://github.com/user-attachments/assets/611d23fe-5074-409c-a0db-3af4a38d4307" />
+
 ^ evidently, a small down trend before market opens tends to continue into regular trading hours, with a small chance of a major rebounce (the rightmost hump). Notice that the mean is still 0 when fitted with the normal distribution - showing that the stock price itself is priced correctly (as expected from an efficient market), but the density shape is mispriced/
 
 <img width="789" height="393" alt="image" src="https://github.com/user-attachments/assets/a6d657b1-03de-467f-a478-e0a445f3be81" />
+
 ^ another notable deviant. A major rise in the extended hours could lead to a tri-modal density in the upcoming trading day. 
 
 <img width="797" height="398" alt="image" src="https://github.com/user-attachments/assets/88f9724d-5d46-4b6f-bac5-4e590821fd6f" />
+
 ^ a tamer example. Even in this relatively bell-shaped case, the model is capable of expressing a higher negative skew and higher kurtosis in the estimated distribution compared to the normal model, showing the advantage of using this model rather than a normal distribution.
 
 ## Statistical Arbitrage
